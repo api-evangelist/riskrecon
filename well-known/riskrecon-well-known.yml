@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: searched
+source: Live probes of RiskRecon hosts (2026-07-21). Absence of a document is valid recorded data.
+hosts:
+- host: https://api.riskrecon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://www.riskrecon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+notes: >-
+  No .well-known discovery documents are published on the API or marketing hosts. Recorded for
+  completeness; no raw files saved.

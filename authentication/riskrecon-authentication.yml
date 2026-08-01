@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  Live probe of https://api.riskrecon.com/v1 (2026-07-21). Unauthenticated request to
+  /v1/toe/{toe} returned HTTP 401 with ReasonCode UNAUTHORIZED and Details "Invalid JWT",
+  confirming JWT bearer authentication.
+summary:
+  types:
+  - http
+  http_schemes:
+  - bearer
+  bearer_format: JWT
+  api_key_in: []
+  oauth2_flows: []
+notes: >-
+  RiskRecon authenticates API calls with a JWT bearer token issued to the customer account.
+  The token is passed in the standard HTTP Authorization header as "Authorization: Bearer <JWT>".
+  Tokens are provisioned from the RiskRecon portal (portal.riskrecon.com). No OAuth 2.0 flow
+  or OpenID Connect discovery surface was found; there is no oauth2 authorization/token
+  endpoint published. Missing or invalid tokens return HTTP 401 with the RiskRecon error
+  envelope (ReasonCode UNAUTHORIZED, Details "Invalid JWT").
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearer_format: JWT
+  in: header
+  header: Authorization
+  sources:
+  - live-probe:https://api.riskrecon.com/v1
+docs: https://api.riskrecon.com/v1/swagger/index.html

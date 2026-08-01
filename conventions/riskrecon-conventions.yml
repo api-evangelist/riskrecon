@@ -1,0 +1,49 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  Derived from live probing of https://api.riskrecon.com (2026-07-21): version prefixes,
+  auth challenge, and error envelope observed directly. Cross-links authentication/, errors/,
+  and lifecycle/ artifacts in this repo.
+authentication:
+  style: jwt-bearer
+  header: Authorization
+  format: 'Bearer <JWT>'
+  ref: authentication/riskrecon-authentication.yml
+versioning:
+  style: uri-path
+  versions:
+  - v1
+  - v2
+  - v0/cpe
+  base: https://api.riskrecon.com/{version}
+  ref: lifecycle/riskrecon-lifecycle.yml
+error_envelope:
+  style: custom
+  top_level_key: Errors
+  array_key: Error
+  fields:
+  - Description
+  - Details
+  - ReasonCode
+  - Recoverable
+  - Source
+  source_constant: RISKRECON_API
+  ref: errors/riskrecon-problem-types.yml
+content_negotiation:
+  note: >-
+    The API is strict about the Accept header; unsupported Accept values return HTTP 406
+    "Not Acceptable" (observed against the swagger.json spec endpoint). Use
+    "Accept: application/json".
+idempotency:
+  supported: unknown
+  note: >-
+    No documented idempotency-key header was observed on the public surface. Not asserting
+    idempotency support, so no Idempotency pointer is emitted.
+pagination:
+  style: unknown
+  note: Pagination scheme not observable without an authenticated account.
+rate_limiting:
+  signaling: unknown
+  note: Rate-limit headers not observable without an authenticated account.
+request_tracing:
+  header: unknown

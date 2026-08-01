@@ -1,0 +1,37 @@
+# RiskRecon by Mastercard
+
+> RiskRecon is a third-party and supply-chain cyber risk management platform that continuously
+> assesses, rates, and monitors the cybersecurity posture of organizations and their vendor
+> ecosystems. It exposes a JWT-authenticated REST API at api.riskrecon.com for pulling security
+> ratings, toe (target-of-evaluation) analyses, findings, and evidence into GRC/TPRM workflows.
+
+## APIs
+
+- [RiskRecon API v1 (Swagger UI)](https://api.riskrecon.com/v1/swagger/index.html): REST API, base URL https://api.riskrecon.com/v1, JWT bearer auth.
+- [RiskRecon API v2 (Swagger UI)](https://api.riskrecon.com/v2/swagger/index.html): v2 surface.
+- [RiskRecon CPE API v0 (Swagger UI)](https://api.riskrecon.com/v0/cpe/swagger/index.html): CPE surface.
+
+## Authentication
+
+- Auth: HTTP bearer token (JWT) in the Authorization header. Tokens are issued from the portal.
+- [Authentication profile](authentication/riskrecon-authentication.yml)
+
+## Conventions & Errors
+
+- [API conventions](conventions/riskrecon-conventions.yml): versioning (uri-path v0/v1/v2), auth, error envelope, content negotiation.
+- [Error catalog](errors/riskrecon-problem-types.yml): RiskRecon error envelope ({"Errors":{"Error":[...]}}), ReasonCodes UNAUTHORIZED / NOT_FOUND.
+- [Lifecycle](lifecycle/riskrecon-lifecycle.yml): version prefixes and deprecation posture.
+
+## Docs
+
+- [Developer Portal](https://portal.riskrecon.com/)
+- [Academy / Getting Started](https://www.riskrecon.com/academy)
+- [Blog](https://blog.riskrecon.com)
+- [Contact / Support](https://www.riskrecon.com/contact-us)
+
+## Company
+
+- [Website](https://www.riskrecon.com)
+- [RiskRecon by Mastercard](https://www.riskrecon.com/solutions/riskrecon-by-mastercard)
+- [Terms of Use](https://www.riskrecon.com/terms-of-use)
+- [Privacy Policy](https://www.riskrecon.com/privacy-policy)

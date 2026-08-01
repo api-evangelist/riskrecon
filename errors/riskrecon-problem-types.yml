@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  Observed live from https://api.riskrecon.com/v1 (2026-07-21). Error envelope and ReasonCodes
+  captured verbatim from real API responses to unauthenticated / not-found requests.
+format: riskrecon-error-envelope
+envelope:
+  description: >-
+    RiskRecon returns errors in a consistent envelope. The top-level key is "Errors", containing
+    an "Error" array. Each element carries Description (human-readable), Details (nullable extra
+    context), ReasonCode (machine-readable enum), Recoverable (bool), and Source (always
+    "RISKRECON_API").
+  shape: |
+    {
+      "Errors": {
+        "Error": [
+          {
+            "Description": "string",
+            "Details": "string | null",
+            "ReasonCode": "string",
+            "Recoverable": false,
+            "Source": "RISKRECON_API"
+          }
+        ]
+      }
+    }
+  not_rfc9457: true
+problems:
+- status: 401
+  reason_code: UNAUTHORIZED
+  description: Unauthorized request
+  details: Invalid JWT
+  recoverable: false
+  evidence: 'GET /v1/toe/{toe} without a valid bearer token -> HTTP 401'
+- status: 404
+  reason_code: NOT_FOUND
+  description: Resource not found.
+  details: null
+  recoverable: false
+  evidence: 'GET /v1/portfolio (undocumented path) -> HTTP 404'
+notes: >-
+  Additional ReasonCodes (e.g. rate limiting, validation) are expected but were not observable
+  without an authenticated account. Only ReasonCodes verified live are recorded above; this
+  catalog is intentionally not padded with unverified codes.

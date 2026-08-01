@@ -1,27 +1,109 @@
 aid: riskrecon
 name: RiskRecon
-description: 'RiskRecon is a company surfaced as a portfolio company of accel and added to the API Evangelist
-  network as a stub for enrichment. Sector: cybersecurity. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: >-
+  RiskRecon by Mastercard is a third-party and supply-chain cyber risk management platform
+  that continuously assesses, rates, and monitors the cybersecurity posture of an organization
+  and its vendor ecosystem. It produces objective, automated security ratings across dozens of
+  security criteria, prioritizes findings by asset value and issue severity, and lets teams tune
+  assessments to their own risk appetite. RiskRecon exposes a REST API (api.riskrecon.com) so
+  customers can programmatically pull portfolio ratings, toe (target-of-evaluation) analyses,
+  findings, and evidence into their own GRC, TPRM, and security workflows. Originally venture
+  backed by Accel and others, RiskRecon was acquired by Mastercard and now operates as RiskRecon
+  by Mastercard.
 url: https://raw.githubusercontent.com/api-evangelist/riskrecon/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - accel
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-owned-by: mastercard
+x-tier: profiled
+x-tier-reason: enrichment-pass
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://www.riskrecon.com/hubfs/riskrecon-by-mastercard-logo.png
 tags:
 - Company
 - Cybersecurity
-apis: []
+- Security Ratings
+- Third Party Risk
+- Supply Chain Risk
+- Risk Management
+- GRC
+- Vendor Monitoring
+- Attack Surface
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: RiskRecon API
+  description: >-
+    RiskRecon REST API for programmatic access to security ratings, portfolio and toe
+    (target-of-evaluation) analyses, findings, and evidence. Authenticated with a JWT bearer
+    token. Multiple version prefixes are published (v1, v2, and a v0/cpe surface), each with its
+    own Swagger UI documentation.
+  humanURL: https://api.riskrecon.com/v1/swagger/index.html
+  baseURL: https://api.riskrecon.com/v1
+  properties:
+  - type: APIReference
+    url: https://api.riskrecon.com/v1/swagger/index.html
+  - type: APIReference
+    url: https://api.riskrecon.com/v2/swagger/index.html
+  - type: Authentication
+    url: authentication/riskrecon-authentication.yml
+  - type: ErrorCatalog
+    url: errors/riskrecon-problem-types.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v1
 common:
+- type: DomainSecurity
+  url: security/riskrecon-domain-security.yml
 - type: Website
-  url: http://www.riskrecon.com
+  url: https://www.riskrecon.com
+- type: DeveloperPortal
+  url: https://portal.riskrecon.com/
+- type: Documentation
+  url: https://api.riskrecon.com/v1/swagger/index.html
+- type: APIReference
+  url: https://api.riskrecon.com/v1/swagger/index.html
+- type: GettingStarted
+  url: https://www.riskrecon.com/academy
+- type: Support
+  url: https://www.riskrecon.com/contact-us
+- type: Blog
+  url: https://blog.riskrecon.com
+- type: TermsOfService
+  url: https://www.riskrecon.com/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.riskrecon.com/privacy-policy
+- type: Login
+  url: https://portal.riskrecon.com/
+- type: Authentication
+  url: authentication/riskrecon-authentication.yml
+- type: ErrorCatalog
+  url: errors/riskrecon-problem-types.yml
+- type: Conventions
+  url: conventions/riskrecon-conventions.yml
+- type: Lifecycle
+  url: lifecycle/riskrecon-lifecycle.yml
+- type: LLMsTxt
+  url: llms/riskrecon-llms.txt
+- type: WellKnown
+  url: well-known/riskrecon-well-known.yml
