@@ -94,6 +94,11 @@ x-enrichment:
   artifacts_added: 7
   pass: local-v1
 common:
+- type: ParentCompany
+  url: https://apis.io/providers/mastercard/
+  name: Mastercard
+  x-relationship: acquired
+  x-evidence: "Originally venture backed by Accel and others, RiskRecon was acquired by Mastercard and now operates as RiskRecon by Mastercard."
 - type: DomainSecurity
   url: security/riskrecon-domain-security.yml
 - type: Website
