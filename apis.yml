@@ -50,7 +50,7 @@ tags:
 - Company
 - Cybersecurity
 - Security Ratings
-- Third-Party Risk
+- Third-Party Risk Management
 - Supply Chain Risk
 - Risk Management
 - GRC
@@ -66,6 +66,7 @@ tags_raw:
 - GRC
 - Vendor Monitoring
 - Attack Surface
+- Third-Party Risk
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
